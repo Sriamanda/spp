@@ -1,0 +1,41 @@
+<?php
+// Skrip berikut ini adalah skrip yang bertugas untuk meng-export data tadi ke excell
+header("Content-type: application/vnd-ms-excel");
+header("Content-Disposition: attachment; filename=rekap_pembayaranspp.xls");
+?>
+<html>
+<head>
+  <title>Data SISWA</title>
+</head>
+<body>
+  <?php
+    foreach($DataSiswa as $ReadDS)
+    {
+  ?>
+NISN :<?php echo $ReadDS->nisn; ?> <br>
+NIS: <?php echo $ReadDS->nis; ?><br>
+Nama: <?php echo $ReadDS->nama; ?><br>
+Alamat : <?php echo $ReadDS->alamat; ?><br>
+No Telp : <?php echo $ReadDS->no_telp; ?><br>
+Kelas : <?php echo $ReadDS->nama_kelas; ?><br>
+<br><br>
+
+<table  cellpadding="10">
+  <tr>
+    <td>Tanggal Bayar</td>
+    <td>Bulan</td>
+    <td>Tahun</td>
+    <td>Jumlah Bayar</td>
+  </tr>
+  <tr>
+    <td><?php echo $ReadDS->tgl_bayar; ?></td>
+    <td><?php echo $ReadDS->bulan_bayar; ?></td>
+    <td><?php echo $ReadDS->tahun_bayar; ?></td>
+    <td><?php echo $ReadDS->jumlah_bayar; ?></td>
+  </tr>
+</table>    
+
+<?php
+}?>
+ </body>
+ </html>  
